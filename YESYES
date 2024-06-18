@@ -2,15 +2,6 @@ if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MainGui") then
 	game.Players.LocalPlayer.PlayerGui.MainGui:Destroy()
 end
 
---[[
-
-		Gui2Lua™
-		10zOfficial
-		Version 1.0.0
-
-]]
-
-
 -- Instances
 
 local MainGui = Instance.new("ScreenGui")
@@ -47,6 +38,7 @@ local TextButton_4 = Instance.new("TextButton")
 local TextLabel_4 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+local MobOpenGui = Instance.new("TextButton")
 
 -- Properties
 
@@ -330,17 +322,37 @@ UIAspectRatioConstraint_8.AspectRatio = 6.722021102905273
 UIAspectRatioConstraint_9.Parent = MainFrame
 UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
+MobOpenGui.Name = "MobOpenGui"
+MobOpenGui.Parent = MainGui
+MobOpenGui.BackgroundColor3 = Color3.new(0, 0, 0)
+MobOpenGui.BackgroundTransparency = 0.25
+MobOpenGui.BorderColor3 = Color3.new(0, 0, 0)
+MobOpenGui.BorderSizePixel = 0
+MobOpenGui.Position = UDim2.new(0, 0, 0.0877192989, 0)
+MobOpenGui.Size = UDim2.new(0.100000001, 0, 0.0598997585, 0)
+MobOpenGui.Visible = false
+MobOpenGui.Font = Enum.Font.SourceSans
+MobOpenGui.Text = "Open GUI"
+MobOpenGui.TextColor3 = Color3.new(1, 1, 1)
+MobOpenGui.TextScaled = true
+MobOpenGui.TextSize = 14
+MobOpenGui.TextWrapped = true
+
 -- Scripts
 
-local function EUVK_fake_script() -- MainGui.MainScript 
+local function XXKCW_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
 	local RunService = game:GetService("RunService")
 	local Players = game:GetService("Players")
 	
 	local LocalPlayer = Players.LocalPlayer
 	local Mouse = LocalPlayer:GetMouse()
+	
+	local IsMobile = false
+	local NotificationCooldown = false
 	
 	local Settings = {
 		SpeedEnabled = false,
@@ -353,10 +365,107 @@ local function EUVK_fake_script() -- MainGui.MainScript
 		XRay = false
 	}
 	
+	local Dragging
+	local DragInput
+	local DragStart
+	local StartPos
+	
 	local MainGui = script.Parent
 	local MainFrame = MainGui.MainFrame
 	local FeaturesFrame = MainFrame.FeaturesFrame
 	local Features = FeaturesFrame.Features
+	
+	local ClickSound = Instance.new("Sound", script)
+	ClickSound.Name = "Click"
+	ClickSound.SoundId = "rbxassetid://6895079853"
+	
+	local function update(input)
+		local delta = input.Position - DragStart
+		local dragTime = 0.04
+		local SmoothDrag = {}
+		SmoothDrag.Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + delta.X, StartPos.Y.Scale, StartPos.Y.Offset + delta.Y)
+		local dragSmoothFunction = TweenService:Create(MainFrame, TweenInfo.new(dragTime, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), SmoothDrag)
+		dragSmoothFunction:Play()
+	end
+	
+	MainFrame.DragFrame.InputBegan:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+			Dragging = true
+			DragStart = Input.Position
+			StartPos = MainFrame.Position
+			Input.Changed:Connect(function()
+				if Input.UserInputState == Enum.UserInputState.End then
+					Dragging = false
+				end
+			end)
+		end
+	end)
+	
+	MainFrame.DragFrame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and Dragging and MainFrame.Size then
+			update(input)
+		end
+	end)
+	
+	if UserInputService:GetLastInputType() == Enum.UserInputType.Touch then
+		IsMobile = true
+	end
+	
+	for _,Button in pairs(MainGui:GetDescendants()) do
+		if Button:IsA("GuiButton") then
+			Button.MouseButton1Click:Connect(function()
+				ClickSound:Play()
+			end)
+		end
+	end
+	
+	MainFrame.DragFrame.CloseButton.MouseButton1Click:Connect(function()
+		MainFrame.Visible = false
+		
+		if IsMobile then
+			MainGui.MobOpenGui.Visible = true
+		else
+			if not NotificationCooldown then
+				NotificationCooldown = true
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Menu Closed",
+					Text = "Press Left Ctrl to open it again.",
+					Duration = 10,
+					Button1 = "Okay"
+				})
+				task.wait(3)
+				NotificationCooldown = false
+			end
+		end
+	end)
+	
+	UserInputService.InputBegan:Connect(function(Input, Typing)
+		if not Typing and Input.KeyCode == Enum.KeyCode.LeftControl then
+			MainFrame.Visible = not MainFrame.Visible
+			
+			if not IsMobile then
+				if MainFrame.Visible == false then
+					if not NotificationCooldown then
+						NotificationCooldown = true
+						game.StarterGui:SetCore("SendNotification", {
+							Title = "Menu Closed",
+							Text = "Press Left Ctrl to open it again.",
+							Duration = 10,
+							Button1 = "Okay"
+						})
+						task.wait(3)
+						NotificationCooldown = false
+					end
+				end
+			end
+		end
+	end)
 	
 	for _,Feature in pairs(Features:GetChildren()) do
 		if Feature.Name == "Speed" then
@@ -488,4 +597,4 @@ local function EUVK_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(EUVK_fake_script)()
+coroutine.wrap(XXKCW_fake_script)()
