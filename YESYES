@@ -8,6 +8,7 @@ local MainGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local DragFrame = Instance.new("Frame")
 local CloseButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 local FeaturesFrame = Instance.new("Frame")
 local Features = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
@@ -16,40 +17,45 @@ local SpeedFrame = Instance.new("Frame")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 local TextButton = Instance.new("TextButton")
 local TextBox = Instance.new("TextBox")
-local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
 local Jump = Instance.new("Frame")
 local JumpFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
 local TextButton_2 = Instance.new("TextButton")
 local TextBox_2 = Instance.new("TextBox")
-local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
 local NoClip = Instance.new("Frame")
 local NoClipFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
 local TextButton_3 = Instance.new("TextButton")
-local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
 local XRay = Instance.new("Frame")
 local XRayFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
 local TextButton_4 = Instance.new("TextButton")
-local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 local Target = Instance.new("Frame")
 local TargetFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
 local TextButton_5 = Instance.new("TextButton")
 local TextBox_3 = Instance.new("TextBox")
-local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
 local Goto = Instance.new("Frame")
 local GotoFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
 local TextButton_6 = Instance.new("TextButton")
 local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+local Headsit = Instance.new("Frame")
+local HeadsitFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
+local TextButton_7 = Instance.new("TextButton")
+local UIAspectRatioConstraint_14 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_15 = Instance.new("UIAspectRatioConstraint")
 local MobOpenGui = Instance.new("TextButton")
 
 -- Properties
@@ -88,6 +94,19 @@ CloseButton.TextColor3 = Color3.new(0, 0, 0)
 CloseButton.TextScaled = true
 CloseButton.TextSize = 14
 CloseButton.TextWrapped = true
+
+TextLabel.Parent = DragFrame
+TextLabel.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0230929833, 0, 0.180691943, 0)
+TextLabel.Size = UDim2.new(0.847339332, 0, 0.622377336, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Cool Script Test Idk"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
 
 FeaturesFrame.Name = "FeaturesFrame"
 FeaturesFrame.Parent = MainFrame
@@ -159,18 +178,18 @@ TextBox.TextScaled = true
 TextBox.TextSize = 14
 TextBox.TextWrapped = true
 
-TextLabel.Parent = SpeedFrame
-TextLabel.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Speed: 16"
-TextLabel.TextColor3 = Color3.new(1, 1, 1)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14
-TextLabel.TextWrapped = true
+TextLabel_2.Parent = SpeedFrame
+TextLabel_2.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_2.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Speed: 16"
+TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14
+TextLabel_2.TextWrapped = true
 
 UIAspectRatioConstraint_2.Parent = Speed
 UIAspectRatioConstraint_2.AspectRatio = 6.722021102905273
@@ -221,18 +240,18 @@ TextBox_2.TextScaled = true
 TextBox_2.TextSize = 14
 TextBox_2.TextWrapped = true
 
-TextLabel_2.Parent = JumpFrame
-TextLabel_2.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel_2.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Jump: 50"
-TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14
-TextLabel_2.TextWrapped = true
+TextLabel_3.Parent = JumpFrame
+TextLabel_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_3.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_3.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Jump: 50"
+TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14
+TextLabel_3.TextWrapped = true
 
 UIAspectRatioConstraint_4.Parent = Jump
 UIAspectRatioConstraint_4.AspectRatio = 6.722021102905273
@@ -268,18 +287,18 @@ TextButton_3.TextScaled = true
 TextButton_3.TextSize = 14
 TextButton_3.TextWrapped = true
 
-TextLabel_3.Parent = NoClipFrame
-TextLabel_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel_3.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel_3.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
-TextLabel_3.Font = Enum.Font.SourceSans
-TextLabel_3.Text = "NoClip"
-TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_3.TextScaled = true
-TextLabel_3.TextSize = 14
-TextLabel_3.TextWrapped = true
+TextLabel_4.Parent = NoClipFrame
+TextLabel_4.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_4.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_4.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "NoClip"
+TextLabel_4.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14
+TextLabel_4.TextWrapped = true
 
 UIAspectRatioConstraint_6.Parent = NoClip
 UIAspectRatioConstraint_6.AspectRatio = 6.722021102905273
@@ -315,18 +334,18 @@ TextButton_4.TextScaled = true
 TextButton_4.TextSize = 14
 TextButton_4.TextWrapped = true
 
-TextLabel_4.Parent = XRayFrame
-TextLabel_4.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel_4.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel_4.BorderSizePixel = 0
-TextLabel_4.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel_4.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
-TextLabel_4.Font = Enum.Font.SourceSans
-TextLabel_4.Text = "X-Ray"
-TextLabel_4.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_4.TextScaled = true
-TextLabel_4.TextSize = 14
-TextLabel_4.TextWrapped = true
+TextLabel_5.Parent = XRayFrame
+TextLabel_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_5.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_5.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "X-Ray"
+TextLabel_5.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14
+TextLabel_5.TextWrapped = true
 
 UIAspectRatioConstraint_8.Parent = XRay
 UIAspectRatioConstraint_8.AspectRatio = 6.722021102905273
@@ -377,18 +396,18 @@ TextBox_3.TextScaled = true
 TextBox_3.TextSize = 14
 TextBox_3.TextWrapped = true
 
-TextLabel_5.Parent = TargetFrame
-TextLabel_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel_5.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel_5.BorderSizePixel = 0
-TextLabel_5.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel_5.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
-TextLabel_5.Font = Enum.Font.SourceSans
-TextLabel_5.Text = "Nobody"
-TextLabel_5.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_5.TextScaled = true
-TextLabel_5.TextSize = 14
-TextLabel_5.TextWrapped = true
+TextLabel_6.Parent = TargetFrame
+TextLabel_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_6.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_6.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_6.Font = Enum.Font.SourceSans
+TextLabel_6.Text = "No target."
+TextLabel_6.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14
+TextLabel_6.TextWrapped = true
 
 UIAspectRatioConstraint_10.Parent = Target
 UIAspectRatioConstraint_10.AspectRatio = 6.722021102905273
@@ -427,9 +446,43 @@ TextButton_6.TextWrapped = true
 UIAspectRatioConstraint_12.Parent = Goto
 UIAspectRatioConstraint_12.AspectRatio = 6.722021102905273
 
-UIAspectRatioConstraint_13.Parent = MainFrame
-UIAspectRatioConstraint_13.AspectRatio = 1.028926134109497
-UIAspectRatioConstraint_13.AspectType = Enum.AspectType.ScaleWithParentSize
+Headsit.Name = "Headsit"
+Headsit.Parent = Features
+Headsit.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Headsit.BorderColor3 = Color3.new(0, 0, 0)
+Headsit.BorderSizePixel = 0
+Headsit.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+HeadsitFrame.Name = "HeadsitFrame"
+HeadsitFrame.Parent = Headsit
+HeadsitFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+HeadsitFrame.BorderColor3 = Color3.new(0, 0, 0)
+HeadsitFrame.BorderSizePixel = 0
+HeadsitFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+HeadsitFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_13.Parent = HeadsitFrame
+UIAspectRatioConstraint_13.AspectRatio = 8.816365242004395
+
+TextButton_7.Parent = HeadsitFrame
+TextButton_7.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_7.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_7.BorderSizePixel = 0
+TextButton_7.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
+TextButton_7.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
+TextButton_7.Font = Enum.Font.SourceSans
+TextButton_7.Text = "Headsit disabled"
+TextButton_7.TextColor3 = Color3.new(1, 0, 0)
+TextButton_7.TextScaled = true
+TextButton_7.TextSize = 14
+TextButton_7.TextWrapped = true
+
+UIAspectRatioConstraint_14.Parent = Headsit
+UIAspectRatioConstraint_14.AspectRatio = 6.722021102905273
+
+UIAspectRatioConstraint_15.Parent = MainFrame
+UIAspectRatioConstraint_15.AspectRatio = 1.028926134109497
+UIAspectRatioConstraint_15.AspectType = Enum.AspectType.ScaleWithParentSize
 
 MobOpenGui.Name = "MobOpenGui"
 MobOpenGui.Parent = MainGui
@@ -449,7 +502,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function LJKDHWJ_fake_script() -- MainGui.MainScript 
+local function GCJWHCJ_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -473,7 +526,8 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 		NoClip = false,
 		XRay = false,
 	
-		Target = nil
+		Target = nil,
+		Headsit = false,
 	}
 	
 	local Dragging
@@ -501,7 +555,7 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 	
 	local function GetPlayer(Text)
 		for _,v in pairs(Players:GetPlayers()) do
-			if string.find(v.DisplayName, Text) or string.find(v.Name, Text) then
+			if string.find(v.DisplayName, Text) or string.find(v.Name, Text) and v ~= LocalPlayer then
 				return v
 			end
 		end
@@ -680,7 +734,7 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 				local Target = GetPlayer(Feature.TargetFrame.TextBox.Text)
 				
 				if Target then
-					if Target.Parent and Target.Parent == Players then
+					if Target.Parent and Target.Parent == Players and Target ~= LocalPlayer then
 						Settings.Target = Target
 						
 						if Target.DisplayName then
@@ -693,12 +747,32 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 			end)
 		elseif Feature.Name == "Goto" then
 			Feature.GotoFrame.TextButton.MouseButton1Click:Connect(function()
-				if Settings.Target then
+				if Settings.Target and not Settings.Headsit then
 					LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.HumanoidRootPart.CFrame
+				end
+			end)
+		elseif Feature.Name == "Headsit" then
+			Feature.HeadsitFrame.TextButton.MouseButton1Click:Connect(function()
+				if Settings.Target then
+					Settings.Headsit = not Settings.Headsit
 				end
 			end)
 		end
 	end
+	
+	Players.PlayerRemoving:Connect(function(Plr)
+		if Plr == Settings.Target then
+			Settings.Target = nil
+			Features.Target.TargetFrame.TextLabel.Text = "No target."
+			
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Target Left",
+				Text = "Please select a new target.",
+				Duration = 10,
+				Button1 = "Okay"
+			})
+		end
+	end)
 	
 	RunService.Heartbeat:Connect(function()
 		if LocalPlayer.Character then
@@ -709,6 +783,13 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 	
 				if Settings.JumpEnabled then
 					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
+				end
+				
+				if Settings.Target and Settings.Target.Parent and Settings.Target.Parent == Players then
+					if Settings.Headsit then
+						LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.Head.CFrame
+						LocalPlayer.Character.Humanoid.Sit = true
+					end
 				end
 			end
 		end
@@ -750,4 +831,4 @@ local function LJKDHWJ_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(LJKDHWJ_fake_script)()
+coroutine.wrap(GCJWHCJ_fake_script)()
