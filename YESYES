@@ -328,7 +328,7 @@ UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
 -- Scripts
 
-local function QRGQ_fake_script() -- MainGui.MainScript 
+local function LLLCQ_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -426,21 +426,49 @@ local function QRGQ_fake_script() -- MainGui.MainScript
 					Feature.XRayFrame.TextButton.Text = "Disabled"
 					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
 				end
+				
+				if Settings.XRay then
+					for _,v in pairs(workspace:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+								if v.LocalTransparencyModifier ~= 0.6 then
+									v.LocalTransparencyModifier = 0.6
+								end
+							end
+						end
+					end
+				else
+					for _,v in pairs(workspace:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+								if v.LocalTransparencyModifier ~= 0 then
+									v.LocalTransparencyModifier = 0
+								end
+							end
+						end
+					end
+				end
 			end)
 		end
 	end
 	
-	RunService.Stepped:Connect(function()
+	RunService.Heartbeat:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
 				if Settings.SpeedEnabled then
 					LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
 				end
-				
+	
 				if Settings.JumpEnabled then
 					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
 				end
+			end
+		end
+	end)
 	
+	RunService.Stepped:Connect(function()
+		if LocalPlayer.Character then
+			if LocalPlayer.Character:FindFirstChild("Humanoid") then
 				if Settings.NoClip then
 					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
 						if v:IsA("BasePart") then
@@ -461,29 +489,5 @@ local function QRGQ_fake_script() -- MainGui.MainScript
 			end
 		end
 	end)
-	
-	while task.wait() do
-		if Settings.XRay then
-			for _,v in pairs(workspace:GetDescendants()) do
-				if v:IsA("BasePart") then
-					if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-						if v.LocalTransparencyModifier ~= 0.4 then
-							v.LocalTransparencyModifier = 0.4
-						end
-					end
-				end
-			end
-		else
-			for _,v in pairs(workspace:GetDescendants()) do
-				if v:IsA("BasePart") then
-					if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-						if v.LocalTransparencyModifier ~= 0 then
-							v.LocalTransparencyModifier = 0
-						end
-					end
-				end
-			end
-		end
-	end
 end
-coroutine.wrap(QRGQ_fake_script)()
+coroutine.wrap(LLLCQ_fake_script)()
