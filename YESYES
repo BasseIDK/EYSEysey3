@@ -328,7 +328,7 @@ UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
 -- Scripts
 
-local function SNUXF_fake_script() -- MainGui.MainScript 
+local function SPCBFL_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -431,60 +431,60 @@ local function SNUXF_fake_script() -- MainGui.MainScript
 	end
 	
 	RunService.Heartbeat:Connect(function()
+		if LocalPlayer.Character then
+			if LocalPlayer.Character:FindFirstChild("Humanoid") then
+				task.spawn(function()
+					if Settings.SpeedEnabled then
+						LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
+					end
+					if Settings.JumpEnabled then
+						LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
+					end
+				end)
+				
+				task.spawn(function()
+					if Settings.XRay then
+						for _,v in pairs(workspace:GetDescendants()) do
+							if v:IsA("BasePart") then
+								if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+									v.LocalTransparencyModifier = 0.4
+								end
+							end
+						end
+					else
+						for _,v in pairs(workspace:GetDescendants()) do
+							if v:IsA("BasePart") then
+								if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+									v.LocalTransparencyModifier = 0
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+	
+	RunService.Stepped:Connect(function()
 		task.spawn(function()
-			if LocalPlayer.Character then
-				if LocalPlayer.Character:FindFirstChild("Humanoid") then
-					task.spawn(function()
-						if Settings.SpeedEnabled then
-							LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
-						end
-						if Settings.JumpEnabled then
-							LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
-						end
-					end)
-	
-					task.spawn(function()
-						if Settings.NoClip then
-							for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-								if v:IsA("BasePart") then
-									v.CanCollide = false
-								end
-							end
+			if Settings.NoClip then
+				for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						v.CanCollide = false
+					end
+				end
+			else
+				for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						if v.Name ~= "Head" and v.Name ~= "Torso" then
+							v.CanCollide = false
 						else
-							for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-								if v:IsA("BasePart") then
-									if v.Name ~= "Head" and v.Name ~= "Torso" then
-										v.CanCollide = false
-									else
-										v.CanCollide = true
-									end
-								end
-							end
+							v.CanCollide = true
 						end
-					end)
-	
-					task.spawn(function()
-						if Settings.XRay then
-							for _,v in pairs(workspace:GetDescendants()) do
-								if v:IsA("BasePart") then
-									if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-										v.LocalTransparencyModifier = 0.4
-									end
-								end
-							end
-						else
-							for _,v in pairs(workspace:GetDescendants()) do
-								if v:IsA("BasePart") then
-									if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-										v.LocalTransparencyModifier = 0
-									end
-								end
-							end
-						end
-					end)
+					end
 				end
 			end
 		end)
 	end)
 end
-coroutine.wrap(SNUXF_fake_script)()
+coroutine.wrap(SPCBFL_fake_script)()
