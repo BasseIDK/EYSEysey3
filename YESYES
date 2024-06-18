@@ -2,6 +2,15 @@ if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MainGui") then
 	game.Players.LocalPlayer.PlayerGui.MainGui:Destroy()
 end
 
+--[[
+
+		Gui2Lua™
+		10zOfficial
+		Version 1.0.0
+
+]]
+
+
 -- Instances
 
 local MainGui = Instance.new("ScreenGui")
@@ -37,7 +46,19 @@ local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
 local TextButton_4 = Instance.new("TextButton")
 local TextLabel_4 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+local Target = Instance.new("Frame")
+local TargetFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+local TextButton_5 = Instance.new("TextButton")
+local TextBox_3 = Instance.new("TextBox")
+local TextLabel_5 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
+local Goto = Instance.new("Frame")
+local GotoFrame = Instance.new("Frame")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local TextButton_6 = Instance.new("TextButton")
+local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
 local MobOpenGui = Instance.new("TextButton")
 
 -- Properties
@@ -319,8 +340,105 @@ TextLabel_4.TextWrapped = true
 UIAspectRatioConstraint_8.Parent = XRay
 UIAspectRatioConstraint_8.AspectRatio = 6.722021102905273
 
-UIAspectRatioConstraint_9.Parent = MainFrame
-UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
+Target.Name = "Target"
+Target.Parent = Features
+Target.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Target.BorderColor3 = Color3.new(0, 0, 0)
+Target.BorderSizePixel = 0
+Target.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+TargetFrame.Name = "TargetFrame"
+TargetFrame.Parent = Target
+TargetFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+TargetFrame.BorderColor3 = Color3.new(0, 0, 0)
+TargetFrame.BorderSizePixel = 0
+TargetFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+TargetFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_9.Parent = TargetFrame
+UIAspectRatioConstraint_9.AspectRatio = 8.816365242004395
+
+TextButton_5.Parent = TargetFrame
+TextButton_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_5.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_5.BorderSizePixel = 0
+TextButton_5.Position = UDim2.new(0.81569308, 0, 0.166597247, 0)
+TextButton_5.Size = UDim2.new(0.165410474, 0, 0.666805625, 0)
+TextButton_5.Font = Enum.Font.SourceSans
+TextButton_5.Text = "Set"
+TextButton_5.TextColor3 = Color3.new(1, 1, 1)
+TextButton_5.TextScaled = true
+TextButton_5.TextSize = 14
+TextButton_5.TextWrapped = true
+
+TextBox_3.Parent = TargetFrame
+TextBox_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextBox_3.BorderColor3 = Color3.new(0, 0, 0)
+TextBox_3.BorderSizePixel = 0
+TextBox_3.Position = UDim2.new(0.331218988, 0, 0.144144461, 0)
+TextBox_3.Size = UDim2.new(0.468312174, 0, 0.689257145, 0)
+TextBox_3.ClearTextOnFocus = false
+TextBox_3.Font = Enum.Font.SourceSans
+TextBox_3.PlaceholderText = "[Target User/Display]"
+TextBox_3.Text = ""
+TextBox_3.TextColor3 = Color3.new(1, 1, 1)
+TextBox_3.TextScaled = true
+TextBox_3.TextSize = 14
+TextBox_3.TextWrapped = true
+
+TextLabel_5.Parent = TargetFrame
+TextLabel_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_5.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_5.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "Nobody"
+TextLabel_5.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14
+TextLabel_5.TextWrapped = true
+
+UIAspectRatioConstraint_10.Parent = Target
+UIAspectRatioConstraint_10.AspectRatio = 6.722021102905273
+
+Goto.Name = "Goto"
+Goto.Parent = Features
+Goto.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Goto.BorderColor3 = Color3.new(0, 0, 0)
+Goto.BorderSizePixel = 0
+Goto.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+GotoFrame.Name = "GotoFrame"
+GotoFrame.Parent = Goto
+GotoFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+GotoFrame.BorderColor3 = Color3.new(0, 0, 0)
+GotoFrame.BorderSizePixel = 0
+GotoFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+GotoFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_11.Parent = GotoFrame
+UIAspectRatioConstraint_11.AspectRatio = 8.816365242004395
+
+TextButton_6.Parent = GotoFrame
+TextButton_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_6.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_6.BorderSizePixel = 0
+TextButton_6.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
+TextButton_6.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
+TextButton_6.Font = Enum.Font.SourceSans
+TextButton_6.Text = "Teleport to Target"
+TextButton_6.TextColor3 = Color3.new(1, 1, 1)
+TextButton_6.TextScaled = true
+TextButton_6.TextSize = 14
+TextButton_6.TextWrapped = true
+
+UIAspectRatioConstraint_12.Parent = Goto
+UIAspectRatioConstraint_12.AspectRatio = 6.722021102905273
+
+UIAspectRatioConstraint_13.Parent = MainFrame
+UIAspectRatioConstraint_13.AspectRatio = 1.028926134109497
+UIAspectRatioConstraint_13.AspectType = Enum.AspectType.ScaleWithParentSize
 
 MobOpenGui.Name = "MobOpenGui"
 MobOpenGui.Parent = MainGui
@@ -340,7 +458,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function XXKCW_fake_script() -- MainGui.MainScript 
+local function LJKDHWJ_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -362,7 +480,9 @@ local function XXKCW_fake_script() -- MainGui.MainScript
 		Jump = 50,
 		
 		NoClip = false,
-		XRay = false
+		XRay = false,
+	
+		Target = nil
 	}
 	
 	local Dragging
@@ -381,11 +501,19 @@ local function XXKCW_fake_script() -- MainGui.MainScript
 	
 	local function update(input)
 		local delta = input.Position - DragStart
-		local dragTime = 0.04
+		local dragTime = 0.02
 		local SmoothDrag = {}
 		SmoothDrag.Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + delta.X, StartPos.Y.Scale, StartPos.Y.Offset + delta.Y)
 		local dragSmoothFunction = TweenService:Create(MainFrame, TweenInfo.new(dragTime, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), SmoothDrag)
 		dragSmoothFunction:Play()
+	end
+	
+	local function GetPlayer(Text)
+		for _,v in pairs(Players:GetPlayers()) do
+			if string.find(v.DisplayName, Text) or string.find(v.Name, Text) then
+				return v
+			end
+		end
 	end
 	
 	MainFrame.DragFrame.InputBegan:Connect(function(Input)
@@ -556,6 +684,28 @@ local function XXKCW_fake_script() -- MainGui.MainScript
 					end
 				end
 			end)
+		elseif Feature.Name == "Target" then
+			Feature.TargetFrame.TextButton.MouseButton1Click:Connect(function()
+				local Target = GetPlayer(Feature.TargetFrame.TextBox.Text)
+				
+				if Target then
+					if Target.Parent and Target.Parent == Players then
+						Settings.Target = Target
+						
+						if Target.DisplayName then
+							Feature.TargetFrame.TextLabel.Text = Target.DisplayName.. " (@".. Target.Name.. ")"
+						else
+							Feature.TargetFrame.TextLabel.Text = Target.Name
+						end
+					end
+				end
+			end)
+		elseif Feature.Name == "Goto" then
+			Feature.GotoFrame.TextButton.MouseButton1Click:Connect(function()
+				if Settings.Target then
+					LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.HumanoidRootPart.CFrame
+				end
+			end)
 		end
 	end
 	
@@ -583,12 +733,24 @@ local function XXKCW_fake_script() -- MainGui.MainScript
 						end
 					end
 				else
-					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-						if v:IsA("BasePart") then
-							if v.Name ~= "Head" and v.Name ~= "Torso" then
-								v.CanCollide = false
-							else
-								v.CanCollide = true
+					if LocalPlayer.Character.Humanoid.RigType ~= Enum.RigType.R15 then
+						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+							if v:IsA("BasePart") then
+								if v.Name ~= "Head" and v.Name ~= "Torso" then
+									v.CanCollide = false
+								else
+									v.CanCollide = true
+								end
+							end
+						end
+					else
+						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+							if v:IsA("BasePart") then
+								if v.Name ~= "HumanoidRootPart" then
+									v.CanCollide = false
+								else
+									v.CanCollide = true
+								end
 							end
 						end
 					end
@@ -597,4 +759,4 @@ local function XXKCW_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(XXKCW_fake_script)()
+coroutine.wrap(LJKDHWJ_fake_script)()
