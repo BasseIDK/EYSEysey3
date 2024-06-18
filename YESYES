@@ -1,0 +1,482 @@
+--[[
+
+		Gui2Lua™
+		10zOfficial
+		Version 1.0.0
+
+]]
+
+
+-- Instances
+
+local MainGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local DragFrame = Instance.new("Frame")
+local CloseButton = Instance.new("TextButton")
+local FeaturesFrame = Instance.new("Frame")
+local Features = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local Speed = Instance.new("Frame")
+local SpeedFrame = Instance.new("Frame")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local TextButton = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local TextLabel = Instance.new("TextLabel")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local Jump = Instance.new("Frame")
+local JumpFrame = Instance.new("Frame")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local TextButton_2 = Instance.new("TextButton")
+local TextBox_2 = Instance.new("TextBox")
+local TextLabel_2 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+local NoClip = Instance.new("Frame")
+local NoClipFrame = Instance.new("Frame")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local TextButton_3 = Instance.new("TextButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local XRay = Instance.new("Frame")
+local XRayFrame = Instance.new("Frame")
+local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+local TextButton_4 = Instance.new("TextButton")
+local TextLabel_4 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+
+-- Properties
+
+MainGui.Name = "MainGui"
+MainGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+MainGui.ResetOnSpawn = false
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = MainGui
+MainFrame.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+MainFrame.BorderColor3 = Color3.new(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.69754523, 0, 0.433333308, 0)
+MainFrame.Size = UDim2.new(0.293152452, 0, 0.552684605, 0)
+
+DragFrame.Name = "DragFrame"
+DragFrame.Parent = MainFrame
+DragFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+DragFrame.BorderColor3 = Color3.new(0, 0, 0)
+DragFrame.BorderSizePixel = 0
+DragFrame.Position = UDim2.new(0.0212164074, 0, 0.0192815848, 0)
+DragFrame.Size = UDim2.new(0.954738379, 0, 0.1129345, 0)
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = DragFrame
+CloseButton.BackgroundColor3 = Color3.new(0.784314, 0, 0)
+CloseButton.BorderColor3 = Color3.new(0, 0, 0)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.895914793, 0, 0.180690616, 0)
+CloseButton.Size = UDim2.new(0.0715505257, 0, 0.622378767, 0)
+CloseButton.Font = Enum.Font.SourceSans
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(0, 0, 0)
+CloseButton.TextScaled = true
+CloseButton.TextSize = 14
+CloseButton.TextWrapped = true
+
+FeaturesFrame.Name = "FeaturesFrame"
+FeaturesFrame.Parent = MainFrame
+FeaturesFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+FeaturesFrame.BorderColor3 = Color3.new(0, 0, 0)
+FeaturesFrame.BorderSizePixel = 0
+FeaturesFrame.Position = UDim2.new(0.0212164465, 0, 0.159761086, 0)
+FeaturesFrame.Size = UDim2.new(0.954738259, 0, 0.815331995, 0)
+
+Features.Name = "Features"
+Features.Parent = FeaturesFrame
+Features.Active = true
+Features.BackgroundColor3 = Color3.new(1, 1, 1)
+Features.BackgroundTransparency = 1
+Features.BorderColor3 = Color3.new(0, 0, 0)
+Features.BorderSizePixel = 0
+Features.Position = UDim2.new(0.0230960865, 0, 0.0304054059, 0)
+Features.Size = UDim2.new(0.95092082, 0, 0.942567587, 0)
+Features.ScrollBarThickness = 0
+
+UIListLayout.Parent = Features
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+Speed.Name = "Speed"
+Speed.Parent = Features
+Speed.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Speed.BorderColor3 = Color3.new(0, 0, 0)
+Speed.BorderSizePixel = 0
+Speed.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+SpeedFrame.Name = "SpeedFrame"
+SpeedFrame.Parent = Speed
+SpeedFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+SpeedFrame.BorderColor3 = Color3.new(0, 0, 0)
+SpeedFrame.BorderSizePixel = 0
+SpeedFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+SpeedFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint.Parent = SpeedFrame
+UIAspectRatioConstraint.AspectRatio = 8.816365242004395
+
+TextButton.Parent = SpeedFrame
+TextButton.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton.BorderColor3 = Color3.new(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.81569308, 0, 0.166597247, 0)
+TextButton.Size = UDim2.new(0.165410474, 0, 0.666805625, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Off"
+TextButton.TextColor3 = Color3.new(1, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14
+TextButton.TextWrapped = true
+
+TextBox.Parent = SpeedFrame
+TextBox.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextBox.BorderColor3 = Color3.new(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.331218988, 0, 0.144144461, 0)
+TextBox.Size = UDim2.new(0.468312174, 0, 0.689257145, 0)
+TextBox.ClearTextOnFocus = false
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "[Speed: Default 16]"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.new(1, 1, 1)
+TextBox.TextScaled = true
+TextBox.TextSize = 14
+TextBox.TextWrapped = true
+
+TextLabel.Parent = SpeedFrame
+TextLabel.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Speed: 16"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
+
+UIAspectRatioConstraint_2.Parent = Speed
+UIAspectRatioConstraint_2.AspectRatio = 6.722021102905273
+
+Jump.Name = "Jump"
+Jump.Parent = Features
+Jump.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Jump.BorderColor3 = Color3.new(0, 0, 0)
+Jump.BorderSizePixel = 0
+Jump.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+JumpFrame.Name = "JumpFrame"
+JumpFrame.Parent = Jump
+JumpFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+JumpFrame.BorderColor3 = Color3.new(0, 0, 0)
+JumpFrame.BorderSizePixel = 0
+JumpFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+JumpFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_3.Parent = JumpFrame
+UIAspectRatioConstraint_3.AspectRatio = 8.816365242004395
+
+TextButton_2.Parent = JumpFrame
+TextButton_2.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_2.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.81569308, 0, 0.166597247, 0)
+TextButton_2.Size = UDim2.new(0.165410474, 0, 0.666805625, 0)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "Off"
+TextButton_2.TextColor3 = Color3.new(1, 0, 0)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14
+TextButton_2.TextWrapped = true
+
+TextBox_2.Parent = JumpFrame
+TextBox_2.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextBox_2.BorderColor3 = Color3.new(0, 0, 0)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(0.331218988, 0, 0.144144461, 0)
+TextBox_2.Size = UDim2.new(0.468312174, 0, 0.689257145, 0)
+TextBox_2.ClearTextOnFocus = false
+TextBox_2.Font = Enum.Font.SourceSans
+TextBox_2.PlaceholderText = "[Jump: Default 50]"
+TextBox_2.Text = ""
+TextBox_2.TextColor3 = Color3.new(1, 1, 1)
+TextBox_2.TextScaled = true
+TextBox_2.TextSize = 14
+TextBox_2.TextWrapped = true
+
+TextLabel_2.Parent = JumpFrame
+TextLabel_2.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_2.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Jump: 50"
+TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14
+TextLabel_2.TextWrapped = true
+
+UIAspectRatioConstraint_4.Parent = Jump
+UIAspectRatioConstraint_4.AspectRatio = 6.722021102905273
+
+NoClip.Name = "NoClip"
+NoClip.Parent = Features
+NoClip.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+NoClip.BorderColor3 = Color3.new(0, 0, 0)
+NoClip.BorderSizePixel = 0
+NoClip.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+NoClipFrame.Name = "NoClipFrame"
+NoClipFrame.Parent = NoClip
+NoClipFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+NoClipFrame.BorderColor3 = Color3.new(0, 0, 0)
+NoClipFrame.BorderSizePixel = 0
+NoClipFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+NoClipFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_5.Parent = NoClipFrame
+UIAspectRatioConstraint_5.AspectRatio = 8.816365242004395
+
+TextButton_3.Parent = NoClipFrame
+TextButton_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_3.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.574905515, 0, 0.166597664, 0)
+TextButton_3.Size = UDim2.new(0.406197846, 0, 0.666805625, 0)
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = "Disabled"
+TextButton_3.TextColor3 = Color3.new(1, 0, 0)
+TextButton_3.TextScaled = true
+TextButton_3.TextSize = 14
+TextButton_3.TextWrapped = true
+
+TextLabel_3.Parent = NoClipFrame
+TextLabel_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_3.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_3.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "NoClip"
+TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14
+TextLabel_3.TextWrapped = true
+
+UIAspectRatioConstraint_6.Parent = NoClip
+UIAspectRatioConstraint_6.AspectRatio = 6.722021102905273
+
+XRay.Name = "XRay"
+XRay.Parent = Features
+XRay.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+XRay.BorderColor3 = Color3.new(0, 0, 0)
+XRay.BorderSizePixel = 0
+XRay.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+XRayFrame.Name = "XRayFrame"
+XRayFrame.Parent = XRay
+XRayFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+XRayFrame.BorderColor3 = Color3.new(0, 0, 0)
+XRayFrame.BorderSizePixel = 0
+XRayFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+XRayFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_7.Parent = XRayFrame
+UIAspectRatioConstraint_7.AspectRatio = 8.816365242004395
+
+TextButton_4.Parent = XRayFrame
+TextButton_4.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_4.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_4.BorderSizePixel = 0
+TextButton_4.Position = UDim2.new(0.574905515, 0, 0.166597664, 0)
+TextButton_4.Size = UDim2.new(0.406197846, 0, 0.666805625, 0)
+TextButton_4.Font = Enum.Font.SourceSans
+TextButton_4.Text = "Disabled"
+TextButton_4.TextColor3 = Color3.new(1, 0, 0)
+TextButton_4.TextScaled = true
+TextButton_4.TextSize = 14
+TextButton_4.TextWrapped = true
+
+TextLabel_4.Parent = XRayFrame
+TextLabel_4.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_4.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_4.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "X-Ray"
+TextLabel_4.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14
+TextLabel_4.TextWrapped = true
+
+UIAspectRatioConstraint_8.Parent = XRay
+UIAspectRatioConstraint_8.AspectRatio = 6.722021102905273
+
+UIAspectRatioConstraint_9.Parent = MainFrame
+UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
+
+-- Scripts
+
+local function SZMDWLJ_fake_script() -- MainGui.MainScript 
+	local script = Instance.new('LocalScript', MainGui)
+
+	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+	local Players = game:GetService("Players")
+	
+	local LocalPlayer = Players.LocalPlayer
+	local Mouse = LocalPlayer:GetMouse()
+	
+	local Settings = {
+		SpeedEnabled = false,
+		JumpEnabled = false,
+		
+		Speed = 16,
+		Jump = 50,
+		
+		NoClip = false,
+		XRay = false
+	}
+	
+	local MainGui = script.Parent
+	local MainFrame = MainGui.MainFrame
+	local FeaturesFrame = MainFrame.FeaturesFrame
+	local Features = FeaturesFrame.Features
+	
+	for _,Feature in pairs(Features:GetChildren()) do
+		if Feature.Name == "Speed" then
+			Feature.SpeedFrame.TextButton.MouseButton1Click:Connect(function()
+				Settings.SpeedEnabled = not Settings.SpeedEnabled
+				
+				if Settings.SpeedEnabled then
+					Feature.SpeedFrame.TextButton.Text = "On"
+					Feature.SpeedFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+				else
+					Feature.SpeedFrame.TextButton.Text = "Off"
+					Feature.SpeedFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+					
+					LocalPlayer.Character.Humanoid.WalkSpeed = 16
+				end
+			end)
+			
+			Features.Speed.SpeedFrame.TextBox.FocusLost:Connect(function()
+				local Final = tonumber(Feature.SpeedFrame.TextBox.Text)
+	
+				if Final ~= nil then
+					Settings.Speed = Final
+	
+					Feature.SpeedFrame.TextLabel.Text = "Speed: ".. Settings.Speed
+				end
+			end)
+		elseif Feature.Name == "Jump" then
+			Feature.JumpFrame.TextButton.MouseButton1Click:Connect(function()
+				Settings.JumpEnabled = not Settings.JumpEnabled
+	
+				if Settings.JumpEnabled then
+					Feature.JumpFrame.TextButton.Text = "On"
+					Feature.JumpFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+				else
+					Feature.JumpFrame.TextButton.Text = "Off"
+					Feature.JumpFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+	
+					LocalPlayer.Character.Humanoid.JumpPower = 50
+				end
+			end)
+	
+			Features.Jump.JumpFrame.TextBox.FocusLost:Connect(function()
+				local Final = tonumber(Feature.JumpFrame.TextBox.Text)
+	
+				if Final ~= nil then
+					Settings.Jump = Final
+	
+					Feature.JumpFrame.TextLabel.Text = "Jump: ".. Settings.Jump
+				end
+			end)
+		elseif Feature.Name == "NoClip" then
+			Feature.NoClipFrame.TextButton.MouseButton1Click:Connect(function()
+				Settings.NoClip = not Settings.NoClip
+				
+				if Settings.NoClip == true then
+					Feature.NoClipFrame.TextButton.Text = "Enabled"
+					Feature.NoClipFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+				else
+					Feature.NoClipFrame.TextButton.Text = "Disabled"
+					Feature.NoClipFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+				end
+			end)
+		elseif Feature.Name == "XRay" then
+			Feature.XRayFrame.TextButton.MouseButton1Click:Connect(function()
+				Settings.XRay = not Settings.XRay
+	
+				if Settings.XRay == true then
+					Feature.XRayFrame.TextButton.Text = "Enabled"
+					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+				else
+					Feature.XRayFrame.TextButton.Text = "Disabled"
+					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+				end
+			end)
+		end
+	end
+	
+	RunService.Stepped:Connect(function()
+		if LocalPlayer.Character then
+			if LocalPlayer.Character:FindFirstChild("Humanoid") then
+				if Settings.SpeedEnabled then
+					LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
+				end
+				if Settings.JumpEnabled then
+					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
+				end
+				
+				if Settings.NoClip then
+					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							v.CanCollide = false
+						end
+					end
+				else
+					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v.Name ~= "Head" and v.Name ~= "Torso" then
+								v.CanCollide = false
+							else
+								v.CanCollide = true
+							end
+						end
+					end
+				end
+				
+				if Settings.XRay then
+					for _,v in pairs(workspace:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+								v.LocalTransparencyModifier = 0.4
+							end
+						end
+					end
+				else
+					for _,v in pairs(workspace:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+								v.LocalTransparencyModifier = 0
+							end
+						end
+					end
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(SZMDWLJ_fake_script)()
