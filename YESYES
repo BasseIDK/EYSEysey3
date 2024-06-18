@@ -328,7 +328,7 @@ UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
 -- Scripts
 
-local function MDJPAKW_fake_script() -- MainGui.MainScript 
+local function QRGQ_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -458,30 +458,32 @@ local function MDJPAKW_fake_script() -- MainGui.MainScript
 						end
 					end
 				end
+			end
+		end
+	end)
 	
-				if Settings.XRay then
-					for _,v in pairs(workspace:GetDescendants()) do
-						if v:IsA("BasePart") then
-							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-								if v.LocalTransparencyModifier ~= 0.4 then
-									v.LocalTransparencyModifier = 0.4
-								end
-							end
+	while task.wait() do
+		if Settings.XRay then
+			for _,v in pairs(workspace:GetDescendants()) do
+				if v:IsA("BasePart") then
+					if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+						if v.LocalTransparencyModifier ~= 0.4 then
+							v.LocalTransparencyModifier = 0.4
 						end
 					end
-				else
-					for _,v in pairs(workspace:GetDescendants()) do
-						if v:IsA("BasePart") then
-							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
-								if v.LocalTransparencyModifier ~= 0 then
-									v.LocalTransparencyModifier = 0
-								end
-							end
+				end
+			end
+		else
+			for _,v in pairs(workspace:GetDescendants()) do
+				if v:IsA("BasePart") then
+					if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
+						if v.LocalTransparencyModifier ~= 0 then
+							v.LocalTransparencyModifier = 0
 						end
 					end
 				end
 			end
 		end
-	end)
+	end
 end
-coroutine.wrap(MDJPAKW_fake_script)()
+coroutine.wrap(QRGQ_fake_script)()
