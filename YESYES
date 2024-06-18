@@ -1,11 +1,6 @@
---[[
-
-		Gui2Lua™
-		10zOfficial
-		Version 1.0.0
-
-]]
-
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MainGui") then
+	game.Players.LocalPlayer.PlayerGui.MainGui:Destroy()
+end
 
 -- Instances
 
@@ -328,7 +323,7 @@ UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
 -- Scripts
 
-local function LLLCQ_fake_script() -- MainGui.MainScript 
+local function TARTYVI_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -422,12 +417,7 @@ local function LLLCQ_fake_script() -- MainGui.MainScript
 				if Settings.XRay == true then
 					Feature.XRayFrame.TextButton.Text = "Enabled"
 					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
-				else
-					Feature.XRayFrame.TextButton.Text = "Disabled"
-					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
-				end
-				
-				if Settings.XRay then
+					
 					for _,v in pairs(workspace:GetDescendants()) do
 						if v:IsA("BasePart") then
 							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
@@ -438,6 +428,9 @@ local function LLLCQ_fake_script() -- MainGui.MainScript
 						end
 					end
 				else
+					Feature.XRayFrame.TextButton.Text = "Disabled"
+					Feature.XRayFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+					
 					for _,v in pairs(workspace:GetDescendants()) do
 						if v:IsA("BasePart") then
 							if v:FindFirstAncestorWhichIsA("Model") and v:FindFirstAncestorWhichIsA("Model"):FindFirstChild("Humanoid") then else
@@ -490,4 +483,4 @@ local function LLLCQ_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(LLLCQ_fake_script)()
+coroutine.wrap(TARTYVI_fake_script)()
