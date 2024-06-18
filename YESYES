@@ -2,15 +2,6 @@ if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MainGui") then
 	game.Players.LocalPlayer.PlayerGui.MainGui:Destroy()
 end
 
---[[
-
-		Gui2Lua™
-		10zOfficial
-		Version 1.0.0
-
-]]
-
-
 -- Instances
 
 local MainGui = Instance.new("ScreenGui")
