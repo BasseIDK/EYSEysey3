@@ -502,7 +502,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function GCJWHCJ_fake_script() -- MainGui.MainScript 
+local function NMBDME_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -734,7 +734,7 @@ local function GCJWHCJ_fake_script() -- MainGui.MainScript
 				local Target = GetPlayer(Feature.TargetFrame.TextBox.Text)
 				
 				if Target then
-					if Target.Parent and Target.Parent == Players and Target ~= LocalPlayer then
+					if Target.Parent and Target.Parent == Players then
 						Settings.Target = Target
 						
 						if Target.DisplayName then
@@ -831,4 +831,4 @@ local function GCJWHCJ_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(GCJWHCJ_fake_script)()
+coroutine.wrap(NMBDME_fake_script)()
