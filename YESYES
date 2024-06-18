@@ -328,7 +328,7 @@ UIAspectRatioConstraint_9.AspectRatio = 1.028926134109497
 
 -- Scripts
 
-local function SZMDWLJ_fake_script() -- MainGui.MainScript 
+local function ZJLIO_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -430,7 +430,7 @@ local function SZMDWLJ_fake_script() -- MainGui.MainScript
 		end
 	end
 	
-	RunService.Stepped:Connect(function()
+	RunService.Heartbeat:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
 				if Settings.SpeedEnabled then
@@ -438,24 +438,6 @@ local function SZMDWLJ_fake_script() -- MainGui.MainScript
 				end
 				if Settings.JumpEnabled then
 					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
-				end
-				
-				if Settings.NoClip then
-					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-						if v:IsA("BasePart") then
-							v.CanCollide = false
-						end
-					end
-				else
-					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-						if v:IsA("BasePart") then
-							if v.Name ~= "Head" and v.Name ~= "Torso" then
-								v.CanCollide = false
-							else
-								v.CanCollide = true
-							end
-						end
-					end
 				end
 				
 				if Settings.XRay then
@@ -478,5 +460,29 @@ local function SZMDWLJ_fake_script() -- MainGui.MainScript
 			end
 		end
 	end)
+	
+	RunService.Stepped:Connect(function()
+		if LocalPlayer.Character then
+			if LocalPlayer.Character:FindFirstChild("Humanoid") then
+				if Settings.NoClip then
+					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							v.CanCollide = false
+						end
+					end
+				else
+					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							if v.Name ~= "Head" and v.Name ~= "Torso" then
+								v.CanCollide = false
+							else
+								v.CanCollide = true
+							end
+						end
+					end
+				end
+			end
+		end
+	end)
 end
-coroutine.wrap(SZMDWLJ_fake_script)()
+coroutine.wrap(ZJLIO_fake_script)()
