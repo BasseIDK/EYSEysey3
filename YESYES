@@ -38,24 +38,30 @@ local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
 local TextButton_4 = Instance.new("TextButton")
 local TextLabel_5 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
-local Target = Instance.new("Frame")
-local TargetFrame = Instance.new("Frame")
+local Fly = Instance.new("Frame")
+local FlyFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
 local TextButton_5 = Instance.new("TextButton")
-local TextBox_3 = Instance.new("TextBox")
 local TextLabel_6 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
-local Goto = Instance.new("Frame")
-local GotoFrame = Instance.new("Frame")
+local Target = Instance.new("Frame")
+local TargetFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
 local TextButton_6 = Instance.new("TextButton")
+local TextBox_3 = Instance.new("TextBox")
+local TextLabel_7 = Instance.new("TextLabel")
 local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
-local Headsit = Instance.new("Frame")
-local HeadsitFrame = Instance.new("Frame")
+local Goto = Instance.new("Frame")
+local GotoFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_13 = Instance.new("UIAspectRatioConstraint")
 local TextButton_7 = Instance.new("TextButton")
 local UIAspectRatioConstraint_14 = Instance.new("UIAspectRatioConstraint")
+local Headsit = Instance.new("Frame")
+local HeadsitFrame = Instance.new("Frame")
 local UIAspectRatioConstraint_15 = Instance.new("UIAspectRatioConstraint")
+local TextButton_8 = Instance.new("TextButton")
+local UIAspectRatioConstraint_16 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_17 = Instance.new("UIAspectRatioConstraint")
 local MobOpenGui = Instance.new("TextButton")
 
 -- Properties
@@ -350,6 +356,53 @@ TextLabel_5.TextWrapped = true
 UIAspectRatioConstraint_8.Parent = XRay
 UIAspectRatioConstraint_8.AspectRatio = 6.722021102905273
 
+Fly.Name = "Fly"
+Fly.Parent = Features
+Fly.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Fly.BorderColor3 = Color3.new(0, 0, 0)
+Fly.BorderSizePixel = 0
+Fly.Size = UDim2.new(1, 0, 0.0286738481, 49)
+
+FlyFrame.Name = "FlyFrame"
+FlyFrame.Parent = Fly
+FlyFrame.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+FlyFrame.BorderColor3 = Color3.new(0, 0, 0)
+FlyFrame.BorderSizePixel = 0
+FlyFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
+FlyFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
+
+UIAspectRatioConstraint_9.Parent = FlyFrame
+UIAspectRatioConstraint_9.AspectRatio = 8.816365242004395
+
+TextButton_5.Parent = FlyFrame
+TextButton_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_5.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_5.BorderSizePixel = 0
+TextButton_5.Position = UDim2.new(0.574905515, 0, 0.166597664, 0)
+TextButton_5.Size = UDim2.new(0.406197846, 0, 0.666805625, 0)
+TextButton_5.Font = Enum.Font.SourceSans
+TextButton_5.Text = "Disabled"
+TextButton_5.TextColor3 = Color3.new(1, 0, 0)
+TextButton_5.TextScaled = true
+TextButton_5.TextSize = 14
+TextButton_5.TextWrapped = true
+
+TextLabel_6.Parent = FlyFrame
+TextLabel_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_6.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_6.Size = UDim2.new(0.5329476, 0, 0.666805625, 0)
+TextLabel_6.Font = Enum.Font.SourceSans
+TextLabel_6.Text = "Fly"
+TextLabel_6.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14
+TextLabel_6.TextWrapped = true
+
+UIAspectRatioConstraint_10.Parent = Fly
+UIAspectRatioConstraint_10.AspectRatio = 6.722021102905273
+
 Target.Name = "Target"
 Target.Parent = Features
 Target.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
@@ -365,21 +418,21 @@ TargetFrame.BorderSizePixel = 0
 TargetFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
 TargetFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
 
-UIAspectRatioConstraint_9.Parent = TargetFrame
-UIAspectRatioConstraint_9.AspectRatio = 8.816365242004395
+UIAspectRatioConstraint_11.Parent = TargetFrame
+UIAspectRatioConstraint_11.AspectRatio = 8.816365242004395
 
-TextButton_5.Parent = TargetFrame
-TextButton_5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextButton_5.BorderColor3 = Color3.new(0, 0, 0)
-TextButton_5.BorderSizePixel = 0
-TextButton_5.Position = UDim2.new(0.81569308, 0, 0.166597247, 0)
-TextButton_5.Size = UDim2.new(0.165410474, 0, 0.666805625, 0)
-TextButton_5.Font = Enum.Font.SourceSans
-TextButton_5.Text = "Set"
-TextButton_5.TextColor3 = Color3.new(1, 1, 1)
-TextButton_5.TextScaled = true
-TextButton_5.TextSize = 14
-TextButton_5.TextWrapped = true
+TextButton_6.Parent = TargetFrame
+TextButton_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_6.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_6.BorderSizePixel = 0
+TextButton_6.Position = UDim2.new(0.81569308, 0, 0.166597247, 0)
+TextButton_6.Size = UDim2.new(0.165410474, 0, 0.666805625, 0)
+TextButton_6.Font = Enum.Font.SourceSans
+TextButton_6.Text = "Set"
+TextButton_6.TextColor3 = Color3.new(1, 1, 1)
+TextButton_6.TextScaled = true
+TextButton_6.TextSize = 14
+TextButton_6.TextWrapped = true
 
 TextBox_3.Parent = TargetFrame
 TextBox_3.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
@@ -396,21 +449,21 @@ TextBox_3.TextScaled = true
 TextBox_3.TextSize = 14
 TextBox_3.TextWrapped = true
 
-TextLabel_6.Parent = TargetFrame
-TextLabel_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextLabel_6.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel_6.BorderSizePixel = 0
-TextLabel_6.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
-TextLabel_6.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
-TextLabel_6.Font = Enum.Font.SourceSans
-TextLabel_6.Text = "No target."
-TextLabel_6.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_6.TextScaled = true
-TextLabel_6.TextSize = 14
-TextLabel_6.TextWrapped = true
+TextLabel_7.Parent = TargetFrame
+TextLabel_7.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextLabel_7.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.Position = UDim2.new(0.0188964102, 0, 0.166597664, 0)
+TextLabel_7.Size = UDim2.new(0.291853279, 0, 0.666805625, 0)
+TextLabel_7.Font = Enum.Font.SourceSans
+TextLabel_7.Text = "No target."
+TextLabel_7.TextColor3 = Color3.new(1, 1, 1)
+TextLabel_7.TextScaled = true
+TextLabel_7.TextSize = 14
+TextLabel_7.TextWrapped = true
 
-UIAspectRatioConstraint_10.Parent = Target
-UIAspectRatioConstraint_10.AspectRatio = 6.722021102905273
+UIAspectRatioConstraint_12.Parent = Target
+UIAspectRatioConstraint_12.AspectRatio = 6.722021102905273
 
 Goto.Name = "Goto"
 Goto.Parent = Features
@@ -427,24 +480,24 @@ GotoFrame.BorderSizePixel = 0
 GotoFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
 GotoFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
 
-UIAspectRatioConstraint_11.Parent = GotoFrame
-UIAspectRatioConstraint_11.AspectRatio = 8.816365242004395
+UIAspectRatioConstraint_13.Parent = GotoFrame
+UIAspectRatioConstraint_13.AspectRatio = 8.816365242004395
 
-TextButton_6.Parent = GotoFrame
-TextButton_6.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextButton_6.BorderColor3 = Color3.new(0, 0, 0)
-TextButton_6.BorderSizePixel = 0
-TextButton_6.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
-TextButton_6.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
-TextButton_6.Font = Enum.Font.SourceSans
-TextButton_6.Text = "Teleport to Target"
-TextButton_6.TextColor3 = Color3.new(1, 1, 1)
-TextButton_6.TextScaled = true
-TextButton_6.TextSize = 14
-TextButton_6.TextWrapped = true
+TextButton_7.Parent = GotoFrame
+TextButton_7.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_7.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_7.BorderSizePixel = 0
+TextButton_7.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
+TextButton_7.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
+TextButton_7.Font = Enum.Font.SourceSans
+TextButton_7.Text = "Teleport to Target"
+TextButton_7.TextColor3 = Color3.new(1, 1, 1)
+TextButton_7.TextScaled = true
+TextButton_7.TextSize = 14
+TextButton_7.TextWrapped = true
 
-UIAspectRatioConstraint_12.Parent = Goto
-UIAspectRatioConstraint_12.AspectRatio = 6.722021102905273
+UIAspectRatioConstraint_14.Parent = Goto
+UIAspectRatioConstraint_14.AspectRatio = 6.722021102905273
 
 Headsit.Name = "Headsit"
 Headsit.Parent = Features
@@ -461,28 +514,28 @@ HeadsitFrame.BorderSizePixel = 0
 HeadsitFrame.Position = UDim2.new(0.0179999992, 0, 0.123999998, 0)
 HeadsitFrame.Size = UDim2.new(0.963999987, 0, 0.735000014, 0)
 
-UIAspectRatioConstraint_13.Parent = HeadsitFrame
-UIAspectRatioConstraint_13.AspectRatio = 8.816365242004395
+UIAspectRatioConstraint_15.Parent = HeadsitFrame
+UIAspectRatioConstraint_15.AspectRatio = 8.816365242004395
 
-TextButton_7.Parent = HeadsitFrame
-TextButton_7.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-TextButton_7.BorderColor3 = Color3.new(0, 0, 0)
-TextButton_7.BorderSizePixel = 0
-TextButton_7.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
-TextButton_7.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
-TextButton_7.Font = Enum.Font.SourceSans
-TextButton_7.Text = "Headsit disabled"
-TextButton_7.TextColor3 = Color3.new(1, 0, 0)
-TextButton_7.TextScaled = true
-TextButton_7.TextSize = 14
-TextButton_7.TextWrapped = true
+TextButton_8.Parent = HeadsitFrame
+TextButton_8.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+TextButton_8.BorderColor3 = Color3.new(0, 0, 0)
+TextButton_8.BorderSizePixel = 0
+TextButton_8.Position = UDim2.new(0.0188964624, 0, 0.166598111, 0)
+TextButton_8.Size = UDim2.new(0.962207139, 0, 0.666805625, 0)
+TextButton_8.Font = Enum.Font.SourceSans
+TextButton_8.Text = "Headsit disabled"
+TextButton_8.TextColor3 = Color3.new(1, 0, 0)
+TextButton_8.TextScaled = true
+TextButton_8.TextSize = 14
+TextButton_8.TextWrapped = true
 
-UIAspectRatioConstraint_14.Parent = Headsit
-UIAspectRatioConstraint_14.AspectRatio = 6.722021102905273
+UIAspectRatioConstraint_16.Parent = Headsit
+UIAspectRatioConstraint_16.AspectRatio = 6.722021102905273
 
-UIAspectRatioConstraint_15.Parent = MainFrame
-UIAspectRatioConstraint_15.AspectRatio = 1.028926134109497
-UIAspectRatioConstraint_15.AspectType = Enum.AspectType.ScaleWithParentSize
+UIAspectRatioConstraint_17.Parent = MainFrame
+UIAspectRatioConstraint_17.AspectRatio = 1.028926134109497
+UIAspectRatioConstraint_17.AspectType = Enum.AspectType.ScaleWithParentSize
 
 MobOpenGui.Name = "MobOpenGui"
 MobOpenGui.Parent = MainGui
@@ -502,7 +555,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function NMBDME_fake_script() -- MainGui.MainScript 
+local function AYCXVG_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -525,10 +578,15 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 		
 		NoClip = false,
 		XRay = false,
+		Fly = false,
 	
 		Target = nil,
 		Headsit = false,
 	}
+	
+	local FlyForce
+	local SpaceHold = false
+	local QHold = false
 	
 	local Dragging
 	local DragInput
@@ -544,6 +602,27 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 	ClickSound.Name = "Click"
 	ClickSound.SoundId = "rbxassetid://6895079853"
 	
+	task.spawn(function()
+		if game.GameId == 2788229376 or game.GameId == 7213786345 or game.GameId == 16033173781 then
+			task.spawn(function()
+				local function Check(Char)
+					for i,v in pairs(Char:GetDescendants()) do
+						if v.Name == "LocalScript" and v.Parent.Parent == Char then
+							v:Destroy()
+						end
+					end
+				end
+	
+				Check(game.Players.LocalPlayer.Character)
+	
+				game.Players.LocalPlayer.CharacterAdded:Connect(function(Char)
+					Char:WaitForChild("Humanoid")
+					Check(Char)
+				end)
+			end)
+		end
+	end)
+	
 	local function update(input)
 		local delta = input.Position - DragStart
 		local dragTime = 0.02
@@ -555,7 +634,7 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 	
 	local function GetPlayer(Text)
 		for _,v in pairs(Players:GetPlayers()) do
-			if string.find(v.DisplayName, Text) or string.find(v.Name, Text) and v ~= LocalPlayer then
+			if string.find(v.DisplayName, Text) or string.find(v.Name, Text) then
 				return v
 			end
 		end
@@ -637,6 +716,18 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 					end
 				end
 			end
+		elseif not Typing and Input.KeyCode == Enum.KeyCode.Space then
+			SpaceHold = true
+		elseif not Typing and Input.KeyCode == Enum.KeyCode.Q then
+			QHold = true
+		end
+	end)
+	
+	UserInputService.InputEnded:Connect(function(Input, Typing)
+		if not Typing and Input.KeyCode == Enum.KeyCode.Space then
+			SpaceHold = false
+		elseif not Typing and Input.KeyCode == Enum.KeyCode.Q then
+			QHold = false
 		end
 	end)
 	
@@ -729,6 +820,26 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 					end
 				end
 			end)
+		elseif Feature.Name == "Fly" then
+			Feature.FlyFrame.TextButton.MouseButton1Click:Connect(function()
+				Settings.Fly = not Settings.Fly
+	
+				if Settings.Fly == true then
+					Feature.FlyFrame.TextButton.Text = "Enabled"
+					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+					
+					FlyForce = Instance.new("BodyVelocity")
+					FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
+					FlyForce.Velocity = Vector3.new(0, 0, 0)
+				else
+					Feature.FlyFrame.TextButton.Text = "Disabled"
+					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+					
+					if FlyForce then
+						FlyForce:Destroy()
+					end
+				end
+			end)
 		elseif Feature.Name == "Target" then
 			Feature.TargetFrame.TextButton.MouseButton1Click:Connect(function()
 				local Target = GetPlayer(Feature.TargetFrame.TextBox.Text)
@@ -760,6 +871,14 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 		end
 	end
 	
+	LocalPlayer.CharacterAdded:Connect(function(Character)
+		if Settings.Fly then
+			FlyForce = Instance.new("BodyVelocity")
+			FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
+			FlyForce.Velocity = Vector3.new(0, 0, 0)
+		end
+	end)
+	
 	Players.PlayerRemoving:Connect(function(Plr)
 		if Plr == Settings.Target then
 			Settings.Target = nil
@@ -789,6 +908,22 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 					if Settings.Headsit then
 						LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.Head.CFrame
 						LocalPlayer.Character.Humanoid.Sit = true
+					end
+				end
+				
+				if Settings.Fly and FlyForce then
+					local Dir = LocalPlayer.Character.Humanoid.MoveDirection * LocalPlayer.Character.Humanoid.WalkSpeed
+					
+					if not SpaceHold and not QHold then
+						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
+					elseif SpaceHold and not QHold then
+						FlyForce.Velocity = Vector3.new(Dir.X, tonumber(LocalPlayer.Character.Humanoid.JumpPower), Dir.Z)
+					elseif not QHold and not SpaceHold then
+						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
+					elseif QHold and not SpaceHold then
+						FlyForce.Velocity = Vector3.new(Dir.X, tonumber("-".. LocalPlayer.Character.Humanoid.JumpPower), Dir.Z)
+					else
+						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
 					end
 				end
 			end
@@ -831,4 +966,5 @@ local function NMBDME_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(NMBDME_fake_script)()
+
+coroutine.wrap(AYCXVG_fake_script)()
