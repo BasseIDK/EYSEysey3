@@ -554,7 +554,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function PEYC_fake_script() -- MainGui.MainScript 
+local function BIKPYPD_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -723,11 +723,21 @@ local function PEYC_fake_script() -- MainGui.MainScript
 			Settings.Fly = not Settings.Fly
 			
 			if Settings.Fly == true then
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running, false)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing, false)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall, false)
+	
+				LocalPlayer.Character.Humanoid:ChangeState(6)
+				
 				FlyForce = Instance.new("BodyVelocity")
 				FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
 				FlyForce.Velocity = Vector3.new(0, 0, 0)
 				
 				FlyGyro = Instance.new("BodyGyro")
+				FlyGyro.D = 500
+				FlyGyro.MaxTorque = Vector3.new(400000, 400000, 400000)
+				FlyGyro.P = 3000
 				FlyGyro.Parent = LocalPlayer.Character.HumanoidRootPart
 				
 				LocalPlayer.Character.Humanoid.PlatformStand = true
@@ -738,7 +748,15 @@ local function PEYC_fake_script() -- MainGui.MainScript
 					end
 				end
 			else
-				LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running, true)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing, true)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, true)
+				LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall, true)
+	
+				LocalPlayer.Character.Humanoid:ChangeState(8)
+				
+				local HRP : Part = LocalPlayer.Character.HumanoidRootPart
+				HRP.Anchored = false
 				
 				if FlyForce then
 					FlyForce:Destroy()
@@ -944,31 +962,6 @@ local function PEYC_fake_script() -- MainGui.MainScript
 						LocalPlayer.Character.Humanoid.Sit = true
 					end
 				end
-				
-				if Settings.Fly and FlyForce then
-					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
-					local Hum : Humanoid = LocalPlayer.Character.Humanoid
-					local Camera = game:GetService("Workspace").CurrentCamera
-					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p;
-					
-					FlyForce.Velocity = Dir*(Hum.WalkSpeed+20)
-					FlyGyro.CFrame = game.Workspace.Camera.CFrame
-					
-					if Dir == Vector3.new(0, 0, 0) then
-						HRP.Anchored = true
-					else
-						HRP.Anchored = false
-					end
-	
-					local Params = RaycastParams.new()
-					local Ray = Ray.new(HRP.Position, workspace.CurrentCamera.CFrame.LookVector)
-					local Raycast = (Ray.Origin + Ray.Direction)
-					if typeof(Raycast) ~= "Vector3" then
-						HRP.CFrame = CFrame.lookAt(HRP.Position, Raycast.Position)
-					else
-						HRP.CFrame = CFrame.lookAt(HRP.Position, Raycast)
-					end
-				end
 			end
 		end
 	end)
@@ -1005,9 +998,28 @@ local function PEYC_fake_script() -- MainGui.MainScript
 						end
 					end
 				end
+	
+				if Settings.Fly and FlyForce then
+					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
+					local Hum : Humanoid = LocalPlayer.Character.Humanoid
+					local Camera = game:GetService("Workspace").CurrentCamera
+					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p
+	
+					TweenService:Create(FlyForce, TweenInfo.new(0.25), { Velocity = Dir*(Hum.WalkSpeed+20) }):Play()
+					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+	
+					if Dir == Vector3.new(0, 0, 0) then
+						HRP.Anchored = false
+						FlyForce.P = 0
+					else
+						HRP.Anchored = false
+						FlyForce.P = 1000
+					end
+	
+					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+				end
 			end
 		end
 	end)
 end
-
-coroutine.wrap(PEYC_fake_script)()
+coroutine.wrap(BIKPYPD_fake_script)()
