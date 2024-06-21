@@ -381,8 +381,8 @@ TextButton_5.BorderSizePixel = 0
 TextButton_5.Position = UDim2.new(0.574905515, 0, 0.166597664, 0)
 TextButton_5.Size = UDim2.new(0.406197846, 0, 0.666805625, 0)
 TextButton_5.Font = Enum.Font.SourceSans
-TextButton_5.Text = "Disabled"
-TextButton_5.TextColor3 = Color3.new(1, 0, 0)
+TextButton_5.Text = "Keybind: X"
+TextButton_5.TextColor3 = Color3.new(1, 1, 1)
 TextButton_5.TextScaled = true
 TextButton_5.TextSize = 14
 TextButton_5.TextWrapped = true
@@ -534,8 +534,7 @@ UIAspectRatioConstraint_16.Parent = Headsit
 UIAspectRatioConstraint_16.AspectRatio = 6.722021102905273
 
 UIAspectRatioConstraint_17.Parent = MainFrame
-UIAspectRatioConstraint_17.AspectRatio = 1.028926134109497
-UIAspectRatioConstraint_17.AspectType = Enum.AspectType.ScaleWithParentSize
+UIAspectRatioConstraint_17.AspectRatio = 1.0290000438690186
 
 MobOpenGui.Name = "MobOpenGui"
 MobOpenGui.Parent = MainGui
@@ -555,7 +554,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function AYCXVG_fake_script() -- MainGui.MainScript 
+local function PEYC_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -584,9 +583,10 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 		Headsit = false,
 	}
 	
+	local FlyKeybind = Enum.KeyCode.X
 	local FlyForce
-	local SpaceHold = false
-	local QHold = false
+	local FlyGyro
+	local FlyDeciding = false
 	
 	local Dragging
 	local DragInput
@@ -716,18 +716,55 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 					end
 				end
 			end
-		elseif not Typing and Input.KeyCode == Enum.KeyCode.Space then
-			SpaceHold = true
-		elseif not Typing and Input.KeyCode == Enum.KeyCode.Q then
-			QHold = true
-		end
-	end)
+		elseif not Typing and Input.KeyCode == FlyKeybind then
+			if FlyDeciding then
+				return
+			end
+			Settings.Fly = not Settings.Fly
+			
+			if Settings.Fly == true then
+				FlyForce = Instance.new("BodyVelocity")
+				FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
+				FlyForce.Velocity = Vector3.new(0, 0, 0)
+				
+				FlyGyro = Instance.new("BodyGyro")
+				FlyGyro.Parent = LocalPlayer.Character.HumanoidRootPart
+				
+				LocalPlayer.Character.Humanoid.PlatformStand = true
+				
+				for _,v in pairs(LocalPlayer.Character:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Massless = true
+					end
+				end
+			else
+				LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				
+				if FlyForce then
+					FlyForce:Destroy()
+				end
+				if FlyGyro then
+					FlyGyro:Destroy()
+				end
 	
-	UserInputService.InputEnded:Connect(function(Input, Typing)
-		if not Typing and Input.KeyCode == Enum.KeyCode.Space then
-			SpaceHold = false
-		elseif not Typing and Input.KeyCode == Enum.KeyCode.Q then
-			QHold = false
+				LocalPlayer.Character.Humanoid.PlatformStand = false
+	
+				for _,v in pairs(LocalPlayer.Character:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Massless = false
+					end
+				end
+			end
+		end
+		
+		if FlyDeciding then
+			if not Typing and Input.KeyCode ~= Enum.KeyCode.Unknown then
+				FlyKeybind = Input.KeyCode
+	
+				FlyDeciding = false
+				Features.Fly.FlyFrame.TextButton.Text = "Keybind: ".. FlyKeybind.Name
+				Features.Fly.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			end
 		end
 	end)
 	
@@ -822,22 +859,14 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 			end)
 		elseif Feature.Name == "Fly" then
 			Feature.FlyFrame.TextButton.MouseButton1Click:Connect(function()
-				Settings.Fly = not Settings.Fly
-	
-				if Settings.Fly == true then
-					Feature.FlyFrame.TextButton.Text = "Enabled"
-					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
-					
-					FlyForce = Instance.new("BodyVelocity")
-					FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
-					FlyForce.Velocity = Vector3.new(0, 0, 0)
+				if not FlyDeciding then
+					FlyDeciding = true
+					Feature.FlyFrame.TextButton.Text = "Press keybind.."
+					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(150, 150, 150)
 				else
-					Feature.FlyFrame.TextButton.Text = "Disabled"
-					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
-					
-					if FlyForce then
-						FlyForce:Destroy()
-					end
+					FlyDeciding = false
+					Feature.FlyFrame.TextButton.Text = "Keybind: ".. FlyKeybind.Name
+					Feature.FlyFrame.TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 				end
 			end)
 		elseif Feature.Name == "Target" then
@@ -876,6 +905,11 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 			FlyForce = Instance.new("BodyVelocity")
 			FlyForce.Parent = LocalPlayer.Character.HumanoidRootPart
 			FlyForce.Velocity = Vector3.new(0, 0, 0)
+	
+			FlyGyro = Instance.new("BodyGyro")
+			FlyGyro.Parent = LocalPlayer.Character
+	
+			LocalPlayer.Character.Humanoid.PlatformStand = true
 		end
 	end)
 	
@@ -912,18 +946,27 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 				end
 				
 				if Settings.Fly and FlyForce then
-					local Dir = LocalPlayer.Character.Humanoid.MoveDirection * LocalPlayer.Character.Humanoid.WalkSpeed
+					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
+					local Hum : Humanoid = LocalPlayer.Character.Humanoid
+					local Camera = game:GetService("Workspace").CurrentCamera
+					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p;
 					
-					if not SpaceHold and not QHold then
-						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
-					elseif SpaceHold and not QHold then
-						FlyForce.Velocity = Vector3.new(Dir.X, tonumber(LocalPlayer.Character.Humanoid.JumpPower), Dir.Z)
-					elseif not QHold and not SpaceHold then
-						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
-					elseif QHold and not SpaceHold then
-						FlyForce.Velocity = Vector3.new(Dir.X, tonumber("-".. LocalPlayer.Character.Humanoid.JumpPower), Dir.Z)
+					FlyForce.Velocity = Dir*(Hum.WalkSpeed+20)
+					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+					
+					if Dir == Vector3.new(0, 0, 0) then
+						HRP.Anchored = true
 					else
-						FlyForce.Velocity = Vector3.new(Dir.X, 0, Dir.Z)
+						HRP.Anchored = false
+					end
+	
+					local Params = RaycastParams.new()
+					local Ray = Ray.new(HRP.Position, workspace.CurrentCamera.CFrame.LookVector)
+					local Raycast = (Ray.Origin + Ray.Direction)
+					if typeof(Raycast) ~= "Vector3" then
+						HRP.CFrame = CFrame.lookAt(HRP.Position, Raycast.Position)
+					else
+						HRP.CFrame = CFrame.lookAt(HRP.Position, Raycast)
 					end
 				end
 			end
@@ -967,4 +1010,4 @@ local function AYCXVG_fake_script() -- MainGui.MainScript
 	end)
 end
 
-coroutine.wrap(AYCXVG_fake_script)()
+coroutine.wrap(PEYC_fake_script)()
