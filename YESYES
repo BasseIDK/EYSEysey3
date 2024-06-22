@@ -554,7 +554,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function BIKPYPD_fake_script() -- MainGui.MainScript 
+local function EAXVJKD_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -962,6 +962,26 @@ local function BIKPYPD_fake_script() -- MainGui.MainScript
 						LocalPlayer.Character.Humanoid.Sit = true
 					end
 				end
+	
+				if Settings.Fly and FlyForce then
+					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
+					local Hum : Humanoid = LocalPlayer.Character.Humanoid
+					local Camera = game:GetService("Workspace").CurrentCamera
+					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p
+	
+					TweenService:Create(FlyForce, TweenInfo.new(0.25), { Velocity = Dir*(Hum.WalkSpeed+20) }):Play()
+					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+	
+					if Dir == Vector3.new(0, 0, 0) then
+						HRP.Anchored = false
+						FlyForce.P = 0
+					else
+						HRP.Anchored = false
+						FlyForce.P = 1000
+					end
+	
+					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+				end
 			end
 		end
 	end)
@@ -998,28 +1018,8 @@ local function BIKPYPD_fake_script() -- MainGui.MainScript
 						end
 					end
 				end
-	
-				if Settings.Fly and FlyForce then
-					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
-					local Hum : Humanoid = LocalPlayer.Character.Humanoid
-					local Camera = game:GetService("Workspace").CurrentCamera
-					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p
-	
-					TweenService:Create(FlyForce, TweenInfo.new(0.25), { Velocity = Dir*(Hum.WalkSpeed+20) }):Play()
-					FlyGyro.CFrame = game.Workspace.Camera.CFrame
-	
-					if Dir == Vector3.new(0, 0, 0) then
-						HRP.Anchored = false
-						FlyForce.P = 0
-					else
-						HRP.Anchored = false
-						FlyForce.P = 1000
-					end
-	
-					FlyGyro.CFrame = game.Workspace.Camera.CFrame
-				end
 			end
 		end
 	end)
 end
-coroutine.wrap(BIKPYPD_fake_script)()
+coroutine.wrap(EAXVJKD_fake_script)()
