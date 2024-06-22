@@ -1,6 +1,11 @@
-if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MainGui") then
-	game.Players.LocalPlayer.PlayerGui.MainGui:Destroy()
-end
+--[[
+
+		Gui2Lua™
+		10zOfficial
+		Version 1.0.0
+
+]]
+
 
 -- Instances
 
@@ -554,7 +559,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function EAXVJKD_fake_script() -- MainGui.MainScript 
+local function OUMPUF_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -1022,4 +1027,4 @@ local function EAXVJKD_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(EAXVJKD_fake_script)()
+coroutine.wrap(OUMPUF_fake_script)()
