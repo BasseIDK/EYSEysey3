@@ -559,7 +559,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function OUMPUF_fake_script() -- MainGui.MainScript 
+local function WGJEYXD_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -608,7 +608,9 @@ local function OUMPUF_fake_script() -- MainGui.MainScript
 	ClickSound.SoundId = "rbxassetid://6895079853"
 	
 	task.spawn(function()
-		if game.GameId == 2788229376 or game.GameId == 7213786345 or game.GameId == 16033173781 then
+		print(game.GameId)
+		if game.GameId == 1008451066 then
+			print("yes")
 			task.spawn(function()
 				local function Check(Char)
 					for i,v in pairs(Char:GetDescendants()) do
@@ -1001,7 +1003,7 @@ local function OUMPUF_fake_script() -- MainGui.MainScript
 						end
 					end
 				else
-					if LocalPlayer.Character.Humanoid.RigType ~= Enum.RigType.R15 then
+					if LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
 						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
 							if v:IsA("BasePart") then
 								if v.Name ~= "Head" and v.Name ~= "Torso" then
@@ -1011,7 +1013,7 @@ local function OUMPUF_fake_script() -- MainGui.MainScript
 								end
 							end
 						end
-					else
+					elseif LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
 						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
 							if v:IsA("BasePart") then
 								if v.Name ~= "HumanoidRootPart" then
@@ -1027,4 +1029,5 @@ local function OUMPUF_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(OUMPUF_fake_script)()
+
+coroutine.wrap(WGJEYXD_fake_script)()
