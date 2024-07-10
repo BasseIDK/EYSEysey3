@@ -1,3 +1,14 @@
+--[[
+
+		Gui2Lua™
+		10zOfficial
+		Version 1.0.0
+
+]]
+
+
+-- Instances
+
 local MainGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local DragFrame = Instance.new("Frame")
@@ -548,7 +559,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function JUAI_fake_script() -- MainGui.MainScript 
+local function PACSEDS_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -944,7 +955,7 @@ local function JUAI_fake_script() -- MainGui.MainScript
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
 				if Settings.Target and Settings.Target.Parent and Settings.Target.Parent == Players then
 					if Settings.Headsit then
-						LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.Head.CFrame
+						LocalPlayer.Character.LowerTorso.CFrame = Settings.Target.Character.Head.CFrame
 						LocalPlayer.Character.Humanoid.Sit = true
 					end
 				end
@@ -1016,4 +1027,4 @@ local function JUAI_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(JUAI_fake_script)()
+coroutine.wrap(PACSEDS_fake_script)()
