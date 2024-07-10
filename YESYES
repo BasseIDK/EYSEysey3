@@ -548,7 +548,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function SDGHLG_fake_script() -- MainGui.MainScript 
+local function JUAI_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -942,14 +942,6 @@ local function SDGHLG_fake_script() -- MainGui.MainScript
 	RunService.Heartbeat:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
-				if Settings.SpeedEnabled then
-					LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
-				end
-	
-				if Settings.JumpEnabled then
-					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
-				end
-				
 				if Settings.Target and Settings.Target.Parent and Settings.Target.Parent == Players then
 					if Settings.Headsit then
 						LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.Head.CFrame
@@ -983,6 +975,14 @@ local function SDGHLG_fake_script() -- MainGui.MainScript
 	RunService.Stepped:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
+				if Settings.SpeedEnabled then
+					LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
+				end
+	
+				if Settings.JumpEnabled then
+					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
+				end
+				
 				if Settings.NoClip then
 					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
 						if v:IsA("BasePart") then
@@ -1016,4 +1016,4 @@ local function SDGHLG_fake_script() -- MainGui.MainScript
 		end
 	end)
 end
-coroutine.wrap(SDGHLG_fake_script)()
+coroutine.wrap(JUAI_fake_script)()
