@@ -559,7 +559,7 @@ MobOpenGui.TextWrapped = true
 
 -- Scripts
 
-local function PACSEDS_fake_script() -- MainGui.MainScript 
+local function ERURHBC_fake_script() -- MainGui.MainScript 
 	local script = Instance.new('LocalScript', MainGui)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -953,32 +953,36 @@ local function PACSEDS_fake_script() -- MainGui.MainScript
 	RunService.Heartbeat:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
-				if Settings.Target and Settings.Target.Parent and Settings.Target.Parent == Players then
-					if Settings.Headsit then
-						LocalPlayer.Character.LowerTorso.CFrame = Settings.Target.Character.Head.CFrame
-						LocalPlayer.Character.Humanoid.Sit = true
+				task.spawn(function()
+					if Settings.Target and Settings.Target.Parent and Settings.Target.Parent == Players then
+						if Settings.Headsit then
+							LocalPlayer.Character.HumanoidRootPart.CFrame = Settings.Target.Character.Head.CFrame
+							LocalPlayer.Character.Humanoid.Sit = true
+						end
 					end
-				end
+				end)
 	
-				if Settings.Fly and FlyForce then
-					local HRP : Part = LocalPlayer.Character.HumanoidRootPart
-					local Hum : Humanoid = LocalPlayer.Character.Humanoid
-					local Camera = game:GetService("Workspace").CurrentCamera
-					local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p
+				task.spawn(function()
+					if Settings.Fly and FlyForce then
+						local HRP : Part = LocalPlayer.Character.HumanoidRootPart
+						local Hum : Humanoid = LocalPlayer.Character.Humanoid
+						local Camera = game:GetService("Workspace").CurrentCamera
+						local Dir = (Camera.CFrame * CFrame.new((CFrame.new(Camera.CFrame.p, Camera.CFrame.p + Vector3.new(Camera.CFrame.lookVector.x, 0, Camera.CFrame.lookVector.z)):VectorToObjectSpace(Hum.MoveDirection)))).p - Camera.CFrame.p
 	
-					TweenService:Create(FlyForce, TweenInfo.new(0.25), { Velocity = Dir*(Hum.WalkSpeed+20) }):Play()
-					FlyGyro.CFrame = game.Workspace.Camera.CFrame
+						TweenService:Create(FlyForce, TweenInfo.new(0.25), { Velocity = Dir*(Hum.WalkSpeed+20) }):Play()
+						FlyGyro.CFrame = game.Workspace.Camera.CFrame
 	
-					if Dir == Vector3.new(0, 0, 0) then
-						HRP.Anchored = false
-						FlyForce.P = 0
-					else
-						HRP.Anchored = false
-						FlyForce.P = 1000
+						if Dir == Vector3.new(0, 0, 0) then
+							HRP.Anchored = false
+							FlyForce.P = 0
+						else
+							HRP.Anchored = false
+							FlyForce.P = 1000
+						end
+	
+						FlyGyro.CFrame = game.Workspace.Camera.CFrame
 					end
-	
-					FlyGyro.CFrame = game.Workspace.Camera.CFrame
-				end
+				end)
 			end
 		end
 	end)
@@ -986,45 +990,49 @@ local function PACSEDS_fake_script() -- MainGui.MainScript
 	RunService.Stepped:Connect(function()
 		if LocalPlayer.Character then
 			if LocalPlayer.Character:FindFirstChild("Humanoid") then
-				if Settings.SpeedEnabled then
-					LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
-				end
+				task.spawn(function()
+					if Settings.SpeedEnabled then
+						LocalPlayer.Character.Humanoid.WalkSpeed = Settings.Speed
+					end
 	
-				if Settings.JumpEnabled then
-					LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
-				end
+					if Settings.JumpEnabled then
+						LocalPlayer.Character.Humanoid.JumpPower = Settings.Jump
+					end
+				end)
 				
-				if Settings.NoClip then
-					for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-						if v:IsA("BasePart") then
-							v.CanCollide = false
-						end
-					end
-				else
-					if LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+				task.spawn(function()
+					if Settings.NoClip then
 						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
 							if v:IsA("BasePart") then
-								if v.Name ~= "Head" and v.Name ~= "Torso" then
-									v.CanCollide = false
-								else
-									v.CanCollide = true
+								v.CanCollide = false
+							end
+						end
+					else
+						if LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+							for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+								if v:IsA("BasePart") then
+									if v.Name ~= "Head" and v.Name ~= "Torso" then
+										v.CanCollide = false
+									else
+										v.CanCollide = true
+									end
+								end
+							end
+						elseif LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+							for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
+								if v:IsA("BasePart") then
+									if v.Name ~= "HumanoidRootPart" then
+										v.CanCollide = false
+									else
+										v.CanCollide = true
+									end
 								end
 							end
 						end
-					elseif LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-						for _,v in pairs(LocalPlayer.Character:GetDescendants()) do
-							if v:IsA("BasePart") then
-								if v.Name ~= "HumanoidRootPart" then
-									v.CanCollide = false
-								else
-									v.CanCollide = true
-								end
-							end
-						end
 					end
-				end
+				end)
 			end
 		end
 	end)
 end
-coroutine.wrap(PACSEDS_fake_script)()
+coroutine.wrap(ERURHBC_fake_script)()
